@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:06:37 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/05/15 10:01:45 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:35:47 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include <unistd.h>
 
 int		ft_find_nl(char *str);
-int		ft_strlen(char *str);
+int		gnl_strlen(char *str);
 char	*get_next_line(int fd);
-char	*ft_strjoin(char *s1, char *s2);
+char	*gnl_strjoin(char *s1, char *s2);
 
 #endif

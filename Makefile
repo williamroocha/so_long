@@ -1,7 +1,10 @@
 NAME = so_long
 
-SRC := $(wildcard src/*.c)
-OBJ := $(patsubst src/%.c,obj/%.o,$(SRC))
+SRC := $(wildcard src/*.c) \
+       $(wildcard includes/get_next_line/*.c)
+
+OBJ := $(patsubst src/%.c,obj/%.o,$(filter-out includes/get_next_line/%.c,$(SRC))) \
+       $(patsubst includes/get_next_line/%.c,obj/%.o,$(filter includes/get_next_line/%.c,$(SRC)))
 
 CC = gcc
 
@@ -21,6 +24,10 @@ $(NAME): $(OBJ)
 	@echo "so_long compiled"
 
 obj/%.o: src/%.c | obj
+	@mkdir -p obj
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+obj/%.o: includes/get_next_line/%.c | obj
 	@mkdir -p obj
 	@$(CC) $(CFLAGS) -c $< -o $@
 

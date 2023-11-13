@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   initialize_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 08:50:33 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/13 17:43:48 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/11/13 17:11:18 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/11/13 17:49:24 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	main(int ac, char **av)
+void	initialize_map(t_map *map, int rows, int cols)
 {
-	t_map	map;
+	int	i;
 
-	(void)av;
-	if (ac == 1)
-		ft_error_handler("Error\nNo map specified.\n");
-	if (ac != 2)
-		ft_error_handler("Error\nToo many arguments.\n");
-	if (!check_path_map(av[1]))
-		ft_error_handler("Error\nMap not found.\n");
-
-	fill_map(&map, av[1]);
-
-
-
-	return (0);
+	map->rows = rows;
+	map->cols = cols;
+	map->grid = (char **)malloc(sizeof(char *) * rows);
+	if (!map->grid)
+		ft_error_handler("Error\nMemory allocation for the grid failed.\n");
+	i = 0;
+	while (i < rows)
+	{
+		map->grid[i] = (char *)malloc(sizeof(char) * (cols + 1));
+		if (!map->grid[i])
+			ft_error_handler("Error\nMemory allocation for the rows failed.\n");
+		i++;
+	}
 }

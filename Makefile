@@ -1,8 +1,7 @@
 NAME = so_long
 
-SRC = src/*.c
-
-OBJ = $(SRC:.c=.o)
+SRC := $(wildcard src/*.c)
+OBJ := $(patsubst src/%.c,obj/%.o,$(SRC))
 
 CC = gcc
 
@@ -21,13 +20,14 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx $(MLXFLAGS) -o $(NAME)
 	@echo "so_long compiled"
 
-$(OBJ): $(SRC)
+obj/%.o: src/%.c | obj
+	@mkdir -p obj
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@make clean -C $(LIBFT_DIR)
 	@make clean -C $(MLX_DIR)
-	@rm -f $(OBJ)
+	@rm -rf obj
 	@echo "so_long cleaned"
 
 fclean: clean
@@ -36,5 +36,7 @@ fclean: clean
 	@echo "so_long fcleaned"
 
 re: fclean all
+
+obj: ; @mkdir -p $@
 
 .PHONY: all clean fclean re

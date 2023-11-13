@@ -5,17 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 09:22:10 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/09/22 07:45:07 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/09/30 20:52:23 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/11/13 14:45:55 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_error_handler(char *message)
+void	ft_error_handler(char *msg)
 {
-	ft_putstr_fd("Error: ", STDERR_FILENO);
-	ft_putstr_fd(message, STDERR_FILENO);
-	ft_putstr_fd("\n", STDERR_FILENO);
-	exit(EXIT_FAILURE);
+	ft_putstr_fd(msg, 2);
+	exit(1);
 }

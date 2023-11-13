@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 10:12:52 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/09/30 20:54:23 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:49:04 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-void				ft_error_exit(char *msg);
+void				ft_error_handler(char *msg);
+
 
 int					ft_atoi(const char *str);
 long long			ft_atoll(const char *str);

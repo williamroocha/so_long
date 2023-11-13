@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   check_path_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 19:19:36 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/13 15:15:23 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/11/13 11:52:17 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/11/13 14:57:42 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../includes/so_long.h"
 
-# include "./libft/libft.h"
-# include "./mlx_linux/mlx.h"
-# include <fcntl.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_map
+int	check_path_map(char *map_path)
 {
-	char	**grid;
-	int		rows;
-	int		cols;
-	char	*filepath;
-}			t_map;
+	int	fd;
 
-int			check_path_map(char *map);
-
-#endif
+	fd = open(map_path, O_RDONLY);
+	if (fd == -1)
+		return (0);
+	close(fd);
+	return (1);
+}

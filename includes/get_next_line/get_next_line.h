@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error_exit.c                                    :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 20:52:23 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/09/30 20:53:56 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/05/08 13:06:37 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/05/15 10:01:45 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	ft_error_exit(char *msg)
-{
-	ft_putstr_fd(msg, 2);
-	exit(EXIT_FAILURE);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+int		ft_find_nl(char *str);
+int		ft_strlen(char *str);
+char	*get_next_line(int fd);
+char	*ft_strjoin(char *s1, char *s2);
+
+#endif

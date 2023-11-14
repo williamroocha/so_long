@@ -9,7 +9,7 @@ SOURCEFILES = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 			  ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c\
 			  ft_atoll.c ft_printf.c ft_putadd.c ft_puthexa.c \
 			  ft_putstr.c ft_putchar.c ft_putnbr.c ft_unsgint.c \
-			  ft_error_handler.c
+			  ft_error_handler.c ft_realloc.c
 
 OBJECTS = $(patsubst %.c,obj/%.o,$(SOURCEFILES))
 

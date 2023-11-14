@@ -8,7 +8,7 @@ OBJ := $(patsubst src/%.c,obj/%.o,$(filter-out includes/get_next_line/%.c,$(SRC)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -Iincludes/
+CFLAGS = -Wall -Wextra -Werror -g -Iincludes/
 MLXFLAGS = -lXext -lX11 -lm -lz
 LIBFT_DIR = ./includes/libft
 LIBFT = $(LIBFT_DIR)/libft.a

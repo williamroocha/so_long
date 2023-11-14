@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 10:12:52 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/13 14:49:04 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:58:02 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				ft_bzero(void *s, size_t n);
 
 void				*ft_calloc(size_t nmemb, size_t size);
+void				*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 char				*ft_strdup(char *src);
 
 char				*ft_substr(char const *s, unsigned int start, size_t len);

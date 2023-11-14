@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:19:36 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/13 18:47:29 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:02:22 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ typedef struct map_data
 	void	*mlx_win;
 }			t_map;
 
-int			main(int ac, char **av);
-int			check_path_map(char *map);
+int				main(int ac, char **av);
+int				check_path_map(char *map);
+void			read_map(t_map *map, char *file_path);
+void			check_map(t_map *map);
+void			initialize_map(t_map *map, int rows, int cols);
 
 #endif

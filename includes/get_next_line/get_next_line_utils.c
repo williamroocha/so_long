@@ -6,13 +6,13 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:14:13 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/13 16:03:46 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:48:53 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../includes/so_long.h"
 
-int	gnl_strlen(char *str)
+int	ftgnl_strlen(char *str)
 {
 	int	i;
 
@@ -21,60 +21,63 @@ int	gnl_strlen(char *str)
 		return (0);
 	while (str[i] && str[i] != '\n')
 		i++;
-	if ((str[i]) == '\n')
-		i++;
-	return (i);
+	return (i + (str[i] == '\n'));
 }
 
-char	*gnl_strjoin(char *s1, char *s2)
+char	*ftgnl_strjoin(char *s1, char *s2)
 {
+	int		size;
 	int		i;
 	int		j;
-	char	*result;
+	char	*str;
 
-	if (s2[0] == '\0')
-		return (0);
 	i = 0;
 	j = -1;
-	result = malloc(sizeof(char) * (gnl_strlen(s1) + gnl_strlen(s2) + 1));
-	if (result == NULL)
+	size = ftgnl_strlen(s1) + ftgnl_strlen(s2);
+	str = (char *)malloc(sizeof(char) * (size + 1));
+	if (!str)
 		return (NULL);
 	while (s1 && s1[i])
 	{
-		result[i] = s1[i];
+		str[i] = s1[i];
 		i++;
 	}
 	while (s2[++j])
 	{
-		result[i++] = s2[j];
+		str[i++] = s2[j];
 		if (s2[j] == '\n')
 			break ;
 	}
-	result[i] = '\0';
+	str[i] = '\0';
 	free(s1);
-	return (result);
+	return (str);
 }
 
-int	ft_find_nl(char *str)
+void	ft_clean_buffer(char *buffer)
 {
 	int	i;
-	int	j;
-	int	new_line;
 
 	i = 0;
+	while (buffer[i])
+		buffer[i++] = 0;
+}
+
+int	ft_check_buffer(char *buffer)
+{
+	int	flag;
+	int	i;
+	int	j;
+
+	flag = 0;
+	i = 0;
 	j = 0;
-	new_line = 0;
-	while (str[i] != 0 && str[i] != '\n')
-		str[i++] = '\0';
-	if (str[i] == '\n')
+	while (buffer[i])
 	{
-		new_line = 1;
-		str[i++] = '\0';
-		while (str[i] != 0)
-		{
-			str[j++] = str[i];
-			str[i++] = '\0';
-		}
+		if (flag)
+			buffer[j++] = buffer[i];
+		if (buffer[i] == '\n')
+			flag = 1;
+		buffer[i++] = '\0';
 	}
-	return (new_line);
+	return (flag);
 }

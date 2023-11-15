@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:41:16 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/14 17:07:09 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:34:46 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 void	line_map_size(t_map *map)
 {
-	int	i;
-	int	j;
-	int	size;
+	int		i;
+	size_t	max_width;
+	size_t	line_length;
 
 	i = 0;
-	j = 0;
-	size = 0;
-	while (map->map_arr[i] && map->map_arr[i][j])
+	max_width = 0;
+	while (map->map_arr[i])
 	{
-		if (map->map_arr[i][j] != '\n')
-			size++;
-		j++;
+		line_length = ft_strlen(map->map_arr[i]);
+		if (line_length > max_width)
+			max_width = line_length;
+		i++;
 	}
-	map->map_width = size;
+	map->map_width = max_width;
 }
 
 int	save_line(t_map *map, char *line)
@@ -66,10 +66,11 @@ void	read_map(t_map *map, char *file_path)
 	while (1)
 	{
 		line = get_next_line(fd);
-		if (!save_line(map, line))
+		if (!line)
 			break ;
+		save_line(map, line);
+		free(line);
 	}
 	line_map_size(map);
-	printf("line_map_size: %d\n", map->map_width);
 	close(fd);
 }

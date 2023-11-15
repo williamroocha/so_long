@@ -7,5 +7,7 @@ I pass this map :
 1111111111111111111111
 
 ➜  so_long git:(main) ✗ ./so_long ./maps/basic.ber
+Map width: 23
 Error
-Map is not rectangular.
+Invalid  walls in the map.
+

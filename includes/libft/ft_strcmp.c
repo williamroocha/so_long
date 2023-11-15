@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 08:50:33 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/15 18:28:48 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/11/15 16:47:27 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/11/15 16:47:52 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_game	game;
+	size_t	count;
 
-	if (ac == 1)
-		ft_error_handler("Error\nNo map specified.\n");
-	else if (ac != 2)
-		ft_error_handler("Error\nToo many arguments.\n");
-	else
+	count = 0;
+	while (s1[count] == s2[count] && s1[count] != '\0')
 	{
-		build(av[1], &game);
+		count++;
 	}
-	return (0);
+	return ((unsigned char)s1[count] - (unsigned char)s2[count]);
 }

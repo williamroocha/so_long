@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_path_map.c                                   :+:      :+:    :+:   */
+/*   constants.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 11:52:17 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/13 14:57:42 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/11/15 16:44:06 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/11/15 18:24:09 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#ifndef CONSTANTS_H
+# define CONSTANTS_H
 
-int	check_path_map(char *map_path)
-{
-	int	fd;
+# define BER ".ber"
 
-	fd = open(map_path, O_RDONLY);
-	if (fd == -1)
-		return (0);
-	close(fd);
-	return (1);
-}
+# define C_START 0
+# define C_END 10
+
+# define E_START 0
+# define E_END 3
+
+# define ENEMY_START 0
+# define ENEMY_END 32
+
+#endif

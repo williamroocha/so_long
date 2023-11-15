@@ -1,7 +1,8 @@
 NAME = so_long
 
-SRC := $(wildcard src/*.c)\
-       $(wildcard src/build/*.c)\
+SRC := $(wildcard src/*.c) \
+       $(wildcard src/build/*.c) \
+       $(wildcard src/check_functions/*.c) \
        $(wildcard includes/get_next_line/*.c)
 
 OBJ := $(patsubst src/%.c,obj/%.o,$(filter-out includes/get_next_line/%.c,$(SRC))) \
@@ -29,6 +30,10 @@ obj/%.o: src/%.c | obj
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 obj/%.o: src/build/%.c | obj
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+obj/%.o: src/check_functions/%.c | obj
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
 

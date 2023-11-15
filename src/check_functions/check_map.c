@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_number_of_players.c                          :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 12:22:17 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/15 12:22:56 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/11/14 12:41:52 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/11/15 18:13:26 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-int	check_number_of_players(t_map *map)
+void	check_map(t_game *game)
 {
-	int	i;
-	int	j;
-	int	num_players;
-
-	i = 0;
-	num_players = 0;
-	while (i < map->map_height)
-	{
-		j = 0;
-		while (j < map->map_width)
-		{
-			if (map->map_arr[i][j] == 'P')
-				num_players++;
-			j++;
-		}
-		i++;
-	}
-	return (num_players);
+	printf("Checking map...\n");
+	if (game->map->height == game->map->width)
+		ft_error_handler("Error\nInvalid map, wrong size.\n");
+	if (!check_map_characters(game))
+		ft_error_handler("Error\nInvalid map, wrong characters.\n");
+	if (!check_map_walls(game))
+		ft_error_handler("Error\nInvalid map, missing walls.\n");
 }

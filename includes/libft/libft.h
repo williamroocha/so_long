@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 10:12:52 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/14 10:58:02 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:48:22 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ int					ft_isdigit(int c);
 int					ft_isprint(int c);
 
 size_t				ft_strlen(const char *str);
+size_t				ft_strlen_nl(const char *s);
 size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
+int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, char *s2, size_t n);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);

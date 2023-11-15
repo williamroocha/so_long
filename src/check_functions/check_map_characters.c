@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_walls.c                                  :+:      :+:    :+:   */
+/*   check_map_characters.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 12:28:33 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/15 14:54:54 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/11/15 18:02:20 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/11/15 18:05:19 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-int	check_map_walls(t_map *map)
+int	check_map_characters(t_game *game)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
 
-	i = 0;
-	while (i < map->map_height)
+	x = 0;
+	y = 0;
+	while (y < game->map->height)
 	{
-		j = 0;
-		while (j < map->map_width)
+		x = 0;
+		while (x < game->map->width)
 		{
-			if (i == 0 || i == map->map_height - 1)
-			{
-				if (map->map_arr[i][j] != '1')
-					return (0);
-			}
-			else if (j == 0 || j == map->map_width - 1)
-			{
-				if (map->map_arr[i][j] != '1')
-					return (0);
-			}
-			j++;
+			if (!ft_strchr("PCEM01\n", game->map->matrix[y][x]))
+				return (0);
+			x++;
 		}
-		i++;
+		y++;
 	}
 	return (1);
 }

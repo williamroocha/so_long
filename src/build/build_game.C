@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   build_game.C                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 12:41:52 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/15 14:59:32 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/11/15 18:31:14 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/11/15 18:32:28 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void	check_map(t_map *map)
+void	build_game(t_game *game)
 {
-	if (check_number_of_players(map) != 1)
-		ft_error_handler("Error\nInvalid number of players.\n");
-	if (check_number_of_exits(map) != 1)
-		ft_error_handler("Error\nInvalid number of exits.\n");
-	if (check_number_of_collectibles(map) == 0)
-		ft_error_handler("Error\nInvalid number of collectibles.\n");
-	if (!check_map_walls(map))
-		ft_error_handler("Error\nInvalid  walls in the map.\n");
+	game->exit_animation_pos = E_START;
+	game->exit_animation = E_START;
+	game->enemies = NULL;
+	game->collectibles = NULL;
+	game->total_collectibles = 0;
+	game->nbr_player = 0;
+	game->nbr_exit = 0;
+	game->mlx = NULL;
 }

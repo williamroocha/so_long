@@ -6,78 +6,80 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:14:13 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/15 13:48:53 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:27:28 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-int	ftgnl_strlen(char *str)
+size_t	ft_strlen_gnl(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] && str[i] != '\n')
+	while (s && s[i] && s[i] != '\n')
 		i++;
-	return (i + (str[i] == '\n'));
+	return (++i);
 }
 
-char	*ftgnl_strjoin(char *s1, char *s2)
+void	ft_strcpy_gnl(char *dest, char *src)
 {
-	int		size;
-	int		i;
-	int		j;
+	size_t	count;
+
+	count = 0;
+	while (src && src[count])
+	{
+		dest[count] = src[count];
+		count++;
+	}
+	dest[count] = '\0';
+}
+
+void	ft_strcat_gnl(char *dest, char *src)
+{
+	size_t	dest_count;
+	size_t	src_count;
+
+	dest_count = ft_strlen_gnl(dest) - 1;
+	src_count = 0;
+	while (src && src[src_count] != '\n' && src[src_count])
+		dest[dest_count++] = src[src_count++];
+	if (src[src_count] == '\n')
+		dest[dest_count++] = '\n';
+	dest[dest_count] = '\0';
+}
+
+char	*ft_strjoin_gnl(char *dest, char *src)
+{
 	char	*str;
 
-	i = 0;
-	j = -1;
-	size = ftgnl_strlen(s1) + ftgnl_strlen(s2);
-	str = (char *)malloc(sizeof(char) * (size + 1));
+	if (!src[0])
+		return (0);
+	str = (char *)malloc((ft_strlen_gnl(dest) + ft_strlen_gnl(src) + 1));
 	if (!str)
 		return (NULL);
-	while (s1 && s1[i])
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	while (s2[++j])
-	{
-		str[i++] = s2[j];
-		if (s2[j] == '\n')
-			break ;
-	}
-	str[i] = '\0';
-	free(s1);
+	ft_strcpy_gnl(str, dest);
+	ft_strcat_gnl(str, src);
+	free(dest);
 	return (str);
 }
 
-void	ft_clean_buffer(char *buffer)
+int	ft_check_newline(char *s)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
+	int		isnl;
 
-	i = 0;
-	while (buffer[i])
-		buffer[i++] = 0;
-}
-
-int	ft_check_buffer(char *buffer)
-{
-	int	flag;
-	int	i;
-	int	j;
-
-	flag = 0;
 	i = 0;
 	j = 0;
-	while (buffer[i])
+	isnl = 0;
+	while (s[i])
 	{
-		if (flag)
-			buffer[j++] = buffer[i];
-		if (buffer[i] == '\n')
-			flag = 1;
-		buffer[i++] = '\0';
+		if (isnl)
+			s[j++] = s[i];
+		if (s[i] == '\n')
+			isnl = 1;
+		s[i++] = '\0';
 	}
-	return (flag);
+	return (isnl);
 }

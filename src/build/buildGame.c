@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   buildGame.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 08:50:33 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/16 13:42:38 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/11/16 10:42:48 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/11/16 14:14:16 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
-int	main(int ac, char **av)
+void	build_game(t_game *game)
 {
-	t_game	game;
-
-	if (ac == 1)
-		ft_error_handler("Error\nNo map specified.\n");
-	else if (ac != 2)
-		ft_error_handler("Error\nToo many arguments.\n");
-	else
-	{
-		build(av[1], &game);
-	}
-	return (0);
+	game->exit_animation_pos = E_START;
+	game->exit_animation = E_START;
+	game->enemies = NULL;
+	game->collectibles = NULL;
+	game->nbr_collectibles = 0;
+	game->nbr_player = 0;
+	game->nbr_exit = 0;
+	game->mlx = NULL;
 }
-
-// Need make an function to free all the memory allocated.
-// Need make a function to free the memory allocated for the map in case of error.

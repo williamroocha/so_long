@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 08:50:33 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/16 13:42:38 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:51:04 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int ac, char **av)
 	}
 	return (0);
 }
+
+//For the struct, maybe create a "structs.h" and include it in the header file.
 
 // Need make an function to free all the memory allocated.
 // Need make a function to free the memory allocated for the map in case of error.

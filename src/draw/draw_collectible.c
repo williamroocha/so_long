@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:04:08 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/21 16:07:07 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:43:38 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,41 @@ void	get_item(t_game *game)
 			}
 			lst = lst->next;
 		}
+	}
+}
+
+t_buffer	*get_collectible_sprite(t_collectible *collectible, t_game *game)
+{
+	if (collectible->animation_position == 4)
+	{
+		if (collectible->animation == C_END)
+		{
+			collectible->animation = C_START;
+		}
+		else
+			collectible->animation += 1;
+		collectible->animation_position = 0;
+	}
+	else
+		collectible->animation_position++;
+	return (&game->sprites->collectible[collectible->animation]);
+}
+
+void	draw_collectible(t_game *game)
+{
+	t_list			*lst;
+	t_collectible	*collectible;
+
+	lst = game->collectibles;
+	while (lst)
+	{
+		collectible = (t_collectible *)lst->content;
+		if (collectible->collected == 0)
+		{
+			draw(collectible->coordinates->x / BLOCK_PIXEL,
+				collectible->coordinates->y / BLOCK_PIXEL,
+				get_collectible_sprite(collectible, game), game);
+		}
+		lst = lst->next;
 	}
 }

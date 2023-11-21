@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:48:29 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/21 16:21:02 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:57:16 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@ int	closing_game(t_game *game)
 	ft_putstr_fd("Bye!\n", 1);
 	end_game(game);
 	return (0);
+}
+
+int	loop(t_game *game)
+{
+	move_enemy(game);
+	draw_background(game);
+	draw_collectible(game);
+	draw_exit(game);
+	draw_enemy(game);
+	mlx_put_image_to_window(game->mlx, game->window, game->image_buffer.img, 0,
+		0);
+	return (EXIT_SUCCESS);
 }
 
 int	keypress(int keycode, t_game *game)

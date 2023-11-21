@@ -3,6 +3,9 @@ NAME = so_long
 SRC := $(wildcard src/*.c) \
        $(wildcard src/build/*.c) \
        $(wildcard src/check_functions/*.c) \
+       $(wildcard src/action/*.c) \
+       $(wildcard src/draw/*.c) \
+       $(wildcard src/util/*.c) \
        $(wildcard includes/get_next_line/*.c)
 
 OBJ := $(patsubst src/%.c,obj/%.o,$(filter-out includes/get_next_line/%.c,$(SRC))) \
@@ -19,10 +22,8 @@ MLX = $(MLX_DIR)/libmlx.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@make -C $(LIBFT_DIR)
-	@make -C $(MLX_DIR)
-	@$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx $(MLXFLAGS) -o $(NAME)
+$(NAME): $(OBJ) $(LIBFT) $(MLX)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L$(MLX_DIR) -lmlx -L$(LIBFT_DIR) -lft $(MLXFLAGS)
 	@echo "so_long compiled"
 
 obj/%.o: src/%.c | obj
@@ -37,9 +38,27 @@ obj/%.o: src/check_functions/%.c | obj
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
+obj/%.o: src/action/%.c | obj
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+obj/%.o: src/draw/%.c | obj
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+obj/%.o: src/util/%.c | obj
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
 obj/%.o: includes/get_next_line/%.c | obj
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(LIBFT):
+	@make -C $(LIBFT_DIR)
+
+$(MLX):
+	@make -C $(MLX_DIR)
 
 clean:
 	@make clean -C $(LIBFT_DIR)
@@ -54,6 +73,7 @@ fclean: clean
 
 re: fclean all
 
-obj: ; @mkdir -p $@
+obj:
+	@mkdir -p $@
 
 .PHONY: all clean fclean re

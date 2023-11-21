@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:44:06 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/16 11:12:55 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:26:10 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define XPM ".xpm"
 # define BER ".ber"
 
-# define WINDOW_TITLE "GOT"
+# define WINDOW_TITLE "GAME"
 
 # define LETTER_KEY_LEFT 97
 # define LETTER_KEY_RIGHT 100

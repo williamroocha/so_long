@@ -2,6 +2,7 @@
     "files.associations": {
         "so_long.h": "c",
         "unistd.h": "c",
-        "build_game.C": "cpp"
+        "build_game.C": "cpp",
+        "x.h": "c"
     }
 }

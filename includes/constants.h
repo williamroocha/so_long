@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:44:06 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/21 13:26:10 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:37:56 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # define TILES "tiles"
 # define EXIT "exit"
 
-# define BLOCK_PIXEL 55
+# define BLOCK_PIXEL 64
 # define XPM ".xpm"
 # define BER ".ber"
 
-# define WINDOW_TITLE "GAME"
+# define WINDOW_TITLE "JOGO SEM NOME"
 
 # define LETTER_KEY_LEFT 97
 # define LETTER_KEY_RIGHT 100

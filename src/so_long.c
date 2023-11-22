@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 08:50:33 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/21 14:11:49 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/22 11:36:01 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	else
 	{
 		build(av[1], &game);
-		register_hook(&game);	
+		register_hook(&game);
 	}
 	return (0);
 }

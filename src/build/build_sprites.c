@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:08:37 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/21 13:29:37 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/22 11:34:45 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	create_sprites(t_game *game, char *sprite_type, int nbr_sprites)
 		path = path_sprite(sprite_type, i);
 		fd_sprite = open(path, O_RDONLY);
 		if (fd_sprite < 0)
-			ft_error_handler("Error\nInvalid sprit path baralho\n");
+			ft_error_handler("Error\nInvalid sprit path\n");
 		close(fd_sprite);
 		load_sprite(game, sprite_type, path, i);
 		free(path);
@@ -82,9 +82,9 @@ void	build_sprites(t_game *game)
 	game->sprites = ft_calloc(1, sizeof(t_sprites));
 	if (!game->sprites)
 		ft_error_handler("Error\nMemory alloc on: build_sprites\n");
-	create_sprites(game, PLAYER, TOTAL_SPRITE_PLAYER);
-	create_sprites(game, ENEMY, TOTAL_SPRITE_ENEMY);
-	create_sprites(game, COLLECTIBLE, TOTAL_SPRITE_COLLECTIBLE);
-	create_sprites(game, EXIT, TOTAL_SPRITE_EXIT);
+	// create_sprites(game, PLAYER, TOTAL_SPRITE_PLAYER);
+	// create_sprites(game, ENEMY, TOTAL_SPRITE_ENEMY);
+	// create_sprites(game, COLLECTIBLE, TOTAL_SPRITE_COLLECTIBLE);
+	// create_sprites(game, EXIT, TOTAL_SPRITE_EXIT);
 	create_sprites(game, TILES, TOTAL_SPRITE_TILES);
 }

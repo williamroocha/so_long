@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:19:36 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/21 17:56:11 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/25 11:15:16 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void		put_pixel(t_buffer *img, int x, int y, int color);
 
 void		get_item(t_game *game);
 void		draw_background(t_game *game);
+void		draw_walls(t_game *game, int x, int y);
+void		draw_path(t_game *game, int x, int y);
 t_buffer	*get_collectible_sprite(t_collectible *collectible, t_game *game);
 void		draw_collectible(t_game *game);
 void		draw_exit(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:04:08 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/25 14:27:10 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:50:55 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	get_item(t_game *game)
 	int				y;
 	int				x;
 
-	printf("get_item\n");
 	lst = game->collectibles;
 	y = game->player->coordinates->y / BLOCK_PIXEL;
 	x = game->player->coordinates->x / BLOCK_PIXEL;
@@ -68,9 +67,8 @@ void	draw_collectible(t_game *game)
 		collectible = (t_collectible *)lst->content;
 		if (collectible->collected == 0)
 		{
-			draw(collectible->coordinates->x / BLOCK_PIXEL,
-				collectible->coordinates->y / BLOCK_PIXEL,
-				get_collectible_sprite(collectible, game), game);
+			draw(collectible->coordinates->x / BLOCK_PIXEL, collectible->coordinates->y
+				/ BLOCK_PIXEL, get_collectible_sprite(collectible, game), game);
 		}
 		lst = lst->next;
 	}

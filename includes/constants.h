@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:44:06 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/25 14:20:11 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:38:14 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define TOTAL_SPRITE_PLAYER 46
 # define TOTAL_SPRITE_ENEMY 33
 # define TOTAL_SPRITE_TILES 10
-# define TOTAL_SPRITE_COLLECTIBLE 12
+# define TOTAL_SPRITE_COLLECTIBLE 14
 # define TOTAL_SPRITE_EXIT 4
 
 # define PSL_START 35

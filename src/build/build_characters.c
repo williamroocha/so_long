@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 10:54:18 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/16 14:06:44 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:25:49 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	build_characters(t_game *game)
 	int	x;
 	int	y;
 
-	y = 0;
+	x = 0;
 	y = 0;
 	while (y < game->map->height)
 	{

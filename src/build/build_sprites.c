@@ -6,29 +6,29 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:08:37 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/22 11:34:45 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:38:47 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static char	*path_sprite(char *sprite_name, int nbr)
+static char	*path_sprite(char *sprite_name, int nb)
 {
-	char	*number;
+	char	*nbr;
 	char	*str1;
 	char	*str2;
 
-	number = ft_itoa(nbr);
+	nbr = ft_itoa(nb);
 	str1 = ft_strjoin(SPRITE_PATH, sprite_name);
 	str2 = ft_strjoin(str1, "/");
 	free(str1);
 	str1 = ft_strjoin(str2, sprite_name);
 	free(str2);
-	str2 = ft_strjoin(str1, number);
+	str2 = ft_strjoin(str1, nbr);
 	free(str1);
 	str1 = ft_strjoin(str2, XPM);
 	free(str2);
-	free(number);
+	free(nbr);
 	return (str1);
 }
 
@@ -51,7 +51,7 @@ static void	load_sprite(t_game *game, char *sprite_type, char *path, int pos)
 	target->img = mlx_xpm_file_to_image(game->mlx, path, &target->width,
 			&target->height);
 	if (!target->img)
-		ft_error_handler("Error\n");
+		ft_error_handler("Error\nMemory alloc on: load_sprite\n");
 	target->addr = mlx_get_data_addr(target->img, &target->bits_per_pixel,
 			&target->line_length, &target->endian);
 }
@@ -59,20 +59,20 @@ static void	load_sprite(t_game *game, char *sprite_type, char *path, int pos)
 static void	create_sprites(t_game *game, char *sprite_type, int nbr_sprites)
 {
 	char	*path;
-	int		fd_sprite;
+	int		fd_xpm;
 	int		i;
 
 	i = 0;
 	while (i < nbr_sprites)
 	{
 		path = path_sprite(sprite_type, i);
-		fd_sprite = open(path, O_RDONLY);
-		if (fd_sprite < 0)
-			ft_error_handler("Error\nInvalid sprit path\n");
-		close(fd_sprite);
+		fd_xpm = open(path, O_RDONLY);
+		if (fd_xpm == -1)
+			ft_error_handler("Error\nFile not found on: create_sprites\n");
+		close(fd_xpm);
 		load_sprite(game, sprite_type, path, i);
 		free(path);
-		fd_sprite = -1;
+		fd_xpm = -1;
 		i++;
 	}
 }
@@ -82,9 +82,9 @@ void	build_sprites(t_game *game)
 	game->sprites = ft_calloc(1, sizeof(t_sprites));
 	if (!game->sprites)
 		ft_error_handler("Error\nMemory alloc on: build_sprites\n");
-	// create_sprites(game, PLAYER, TOTAL_SPRITE_PLAYER);
-	// create_sprites(game, ENEMY, TOTAL_SPRITE_ENEMY);
-	// create_sprites(game, COLLECTIBLE, TOTAL_SPRITE_COLLECTIBLE);
-	// create_sprites(game, EXIT, TOTAL_SPRITE_EXIT);
+	create_sprites(game, EXIT, TOTAL_SPRITE_EXIT);
+	create_sprites(game, PLAYER, TOTAL_SPRITE_PLAYER);
+	create_sprites(game, COLLECTIBLE, TOTAL_SPRITE_COLLECTIBLE);
+	create_sprites(game, ENEMY, TOTAL_SPRITE_ENEMY);
 	create_sprites(game, TILES, TOTAL_SPRITE_TILES);
 }

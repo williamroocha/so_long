@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:44:39 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/16 14:16:08 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:30:19 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ void	build_collectible(t_game *game, int x, int y)
 	collectible->collected = 0;
 	collectible->animation = 0;
 	collectible->animation_position = 0;
-	if (game->collectibles == NULL)
-		game->collectibles = ft_lstnew(collectible);
-	else
-		ft_lstadd_back(&game->collectibles, ft_lstnew(collectible));
 	game->nbr_collectibles++;
+	ft_lstadd_back(&game->collectibles, ft_lstnew(collectible));
 }

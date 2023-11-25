@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:21:48 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/25 14:32:37 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:52:02 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ void	draw_background(t_game *game)
 		{
 			if (game->map->matrix[y][x] == '1')
 				draw_walls(game, x, y);
-			else if (game->map->matrix[y][x] == 'C')
-				draw_collectible(game);
 			else
 			{
 				draw_path(game, x, y);

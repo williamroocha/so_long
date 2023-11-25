@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:19:36 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/25 11:15:16 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/25 12:44:21 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <time.h>
 # include <unistd.h>
 
 // main functions

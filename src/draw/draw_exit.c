@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:09:44 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/21 17:48:18 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/25 13:49:52 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,20 @@ void	finish_game(t_game *game)
 
 t_buffer	*get_exit_sprite(t_game *game)
 {
-	if (game->nbr_collectibles == 0 && game->exit_animation_pos == 10)
+	printf("%d	%d\n", game->nbr_collectibles, game->exit_animation_pos);
+	if (game->nbr_collectibles == 5 && game->exit_animation_pos == 0)
 	{
 		if (game->exit_animation != E_END)
+		{
 			game->exit_animation += 1;
+		}
 		game->exit_animation_pos = 0;
 	}
 	else if (game->nbr_collectibles == 0)
+	{
+		printf("get_exit_sprite else\n");
 		game->exit_animation_pos++;
+	}
 	return (&game->sprites->exit[game->exit_animation]);
 }
 

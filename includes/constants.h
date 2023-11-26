@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:44:06 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/26 16:58:51 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/26 19:35:48 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define KEY_ESC 65307
 
 # define TOTAL_SPRITE_PLAYER 46
-# define TOTAL_SPRITE_ENEMY 38
+# define TOTAL_SPRITE_ENEMY 34
 # define TOTAL_SPRITE_TILES 10
 # define TOTAL_SPRITE_COLLECTIBLE 14
 # define TOTAL_SPRITE_EXIT 4

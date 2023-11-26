@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:48:29 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/25 18:31:19 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/26 17:06:49 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ int	loop(t_game *game)
 {
 	draw_background(game);
 	draw_collectible(game);
+	draw_exit(game);
+	draw_enemy(game);
+	move_enemy(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->image_buffer.img, 0,
 		0);
 	return (EXIT_SUCCESS);

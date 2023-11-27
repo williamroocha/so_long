@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 07:39:01 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/27 09:21:14 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:38:31 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,17 @@ void	dead_player(t_game *game)
 	t_enemy	*enemy;
 
 	lst = game->enemies;
-	enemy = (t_enemy *)lst->content;
-	if (enemy->coordinates->x == game->player->coordinates->x
-		&& enemy->coordinates->y == game->player->coordinates->y)
+	while (lst)
 	{
-		ft_putstr_fd("GAME OVER", 1);
-		end_game(game);
+		enemy = (t_enemy *)lst->content;
+		if (enemy->coordinates->x == game->player->coordinates->x
+			&& enemy->coordinates->y == game->player->coordinates->y)
+		{
+			ft_putstr_fd("You died\n", 1);
+			end_game(game);
+		}
+		lst = lst->next;
 	}
-	lst = lst->next;
 }
 
 void	draw_count_steps(t_game *game)
@@ -46,27 +49,36 @@ void	draw_count_steps(t_game *game)
 
 t_buffer	*get_player_sprite(t_game *game)
 {
-	static int	arr_position;
+	static int	arr_pos;
 	static int	anim_inter;
 
+	printf("get_player_sprite\n");
 	if (anim_inter == 20)
 	{
-		if (game->player->coordinates->x != game->player->previous_coordinates->x
-			|| game->player->coordinates->y != game->player->previous_coordinates->y)
-			arr_position = player_walk_sprite(game);
-		anim_inter = 0;
+		// error here
+		printf("error here\n");
+		printf("%d\n", game->player->coordinates->y);
+		printf("%d\n", game->player->previous_coordinates->y);
+		printf("%d\n", game->player->coordinates->x);
+		printf("%d\n", game->player->previous_coordinates->x);
+		// if (game->player->coordinates->y != game->player->previous_coordinates->y
+		// 	|| game->player->coordinates->x != game->player->previous_coordinates->x)
+		// {
+		// 	arr_pos = player_walk_sprite(game);
+		// }
+		// anim_inter = 0;
 	}
 	else
 		anim_inter++;
-	return (&game->sprites->player[arr_position]);
+	return (&game->sprites->player[arr_pos]);
 }
 
 void	draw_player(t_game *game)
 {
-	printf("Draw player");
-	dead_player(game);
+	// dead_player(game);
 	draw_count_steps(game);
-	draw(game->player->coordinates->x / BLOCK_PIXEL,
-		game->player->coordinates->y / BLOCK_PIXEL, get_player_sprite(game),
-		game);
+	get_player_sprite(game);
+	// draw(game->player->coordinates->x / BLOCK_PIXEL,
+	// 	game->player->coordinates->y / BLOCK_PIXEL, get_player_sprite(game),
+	// 	game);
 }

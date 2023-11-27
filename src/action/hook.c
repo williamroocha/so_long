@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:48:29 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/27 09:41:25 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/27 09:57:49 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	loop(t_game *game)
 	move_enemy(game);
 	mlx_put_image_to_window(game->mlx, game->window, game->image_buffer.img, 0,
 		0);
-	// draw_player(game);
+	draw_player(game);
 	return (EXIT_SUCCESS);
 }
 

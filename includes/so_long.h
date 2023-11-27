@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:19:36 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/25 12:44:21 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/27 09:19:00 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,19 @@ t_buffer	*get_exit_sprite(t_game *game);
 t_buffer	*get_enemy_sprite(t_enemy *enemy, t_game *game);
 void		draw_enemy(t_game *game);
 
+void		dead_player(t_game *game);
+void		draw_count_steps(t_game *game);
+t_buffer	*get_player_sprite(t_game *game);
+void		draw_player(t_game *game);
+
 void		finish_game(t_game *game);
+
+//	Player moves sprites
+void		player_walk_sprite_left(t_game *game);
+void		player_walk_sprite_right(t_game *game);
+void		player_walk_sprite_down(t_game *game);
+void		player_walk_sprite_up(t_game *game);
+int			player_walk_sprite(t_game *game);
 
 // Hook functions
 int			closing_game(t_game *game);

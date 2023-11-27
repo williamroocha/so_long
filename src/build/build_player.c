@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:18:49 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/16 14:19:51 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/27 09:25:14 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	build_player(t_game *game, int x, int y)
 	{
 		game->player = ft_calloc(1, sizeof(t_player));
 		game->player->previous_coordinates = ft_calloc(1, sizeof(t_coord));
-		if (!game->player || !game->player->previous_coordinates)
+		if (game->player == NULL || game->player->previous_coordinates == NULL)
 			ft_error_handler("Error\nMemory alloc on: build_player\n");
 		game->player->previous_coordinates = build_coordinates(game, x, y);
 		game->flood_fill->x = x;

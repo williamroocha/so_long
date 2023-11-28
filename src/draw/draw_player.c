@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 07:39:01 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/27 10:38:31 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/28 08:52:37 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,22 +51,19 @@ t_buffer	*get_player_sprite(t_game *game)
 {
 	static int	arr_pos;
 	static int	anim_inter;
+	t_coord		*player_coordinates;
+	t_coord		*player_previous_coordinates;
 
-	printf("get_player_sprite\n");
+	player_coordinates = game->player->coordinates;
+	player_previous_coordinates = game->player->previous_coordinates;
 	if (anim_inter == 20)
 	{
-		// error here
-		printf("error here\n");
-		printf("%d\n", game->player->coordinates->y);
-		printf("%d\n", game->player->previous_coordinates->y);
-		printf("%d\n", game->player->coordinates->x);
-		printf("%d\n", game->player->previous_coordinates->x);
-		// if (game->player->coordinates->y != game->player->previous_coordinates->y
-		// 	|| game->player->coordinates->x != game->player->previous_coordinates->x)
-		// {
-		// 	arr_pos = player_walk_sprite(game);
-		// }
-		// anim_inter = 0;
+		if (player_coordinates->y != player_previous_coordinates->y
+			|| player_coordinates->x != player_previous_coordinates->x)
+		{
+			arr_pos = player_walk_sprite(game);
+		}
+		anim_inter = 0;
 	}
 	else
 		anim_inter++;
@@ -75,10 +72,10 @@ t_buffer	*get_player_sprite(t_game *game)
 
 void	draw_player(t_game *game)
 {
-	// dead_player(game);
+	dead_player(game);
 	draw_count_steps(game);
 	get_player_sprite(game);
-	// draw(game->player->coordinates->x / BLOCK_PIXEL,
-	// 	game->player->coordinates->y / BLOCK_PIXEL, get_player_sprite(game),
-	// 	game);
+	draw(game->player->coordinates->x / BLOCK_PIXEL,
+		game->player->coordinates->y / BLOCK_PIXEL, get_player_sprite(game),
+		game);
 }

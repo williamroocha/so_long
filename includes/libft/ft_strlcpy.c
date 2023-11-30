@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 09:24:08 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/14 17:01:54 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:52:16 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
-
-	printf("Using custom ft_strlcpy\n");
 
 	i = 0;
 	while (src[i] && i < size - 1)

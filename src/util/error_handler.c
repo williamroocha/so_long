@@ -6,14 +6,15 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 20:52:23 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/13 14:45:55 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:32:53 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/so_long.h"
 
-void	ft_error_handler(char *msg)
+void	error_handler(char *msg, t_game *game)
 {
 	ft_putstr_fd(msg, 2);
+	end_game(game);
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:41:16 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/26 09:29:18 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:46:07 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	read_map(int fd, t_game *game)
 		if (game->map->width == 0)
 			game->map->width = ft_strlen_nl(line);
 		else if (game->map->width != (int)ft_strlen_nl(line))
-			ft_error_handler("Error\nInvalid map, wrong size.\n");
+			error_handler("Error\nInvalid map, wrong size.\n", game);
 		if (game->map->lst_map == NULL)
 			game->map->lst_map = ft_lstnew(line);
 		else

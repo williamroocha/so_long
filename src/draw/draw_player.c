@@ -6,11 +6,11 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 07:39:01 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/28 08:52:37 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/01 14:52:22 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../..//includes/so_long.h"
+#include "../../includes/so_long.h"
 
 void	dead_player(t_game *game)
 {
@@ -37,10 +37,10 @@ void	draw_count_steps(t_game *game)
 	char	*steps_window;
 
 	steps = ft_itoa(game->player->steps);
-	steps_window = ft_strjoin("steps: ", steps);
+	steps_window = ft_strjoin("Steps: ", steps);
 	free(steps);
 	mlx_string_put(game->mlx, game->window, (game->map->width * BLOCK_PIXEL)
-		- BLOCK_PIXEL * 2, game->map->height + BLOCK_PIXEL / 2, 0x0000000,
+		- BLOCK_PIXEL * 2, game->map->height + BLOCK_PIXEL / 2, 0xeee600,
 		steps_window);
 	free(steps_window);
 }

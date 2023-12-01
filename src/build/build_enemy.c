@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:09:19 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/26 09:37:41 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:40:21 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ void	build_enemy(t_game *game, int x, int y)
 
 	enemy = ft_calloc(1, sizeof(t_enemy));
 	if (!enemy)
-		ft_error_handler("Error\nMemory alloc failed on: build_enemy.\n");
+		error_handler("Error\nMemory alloc failed on: build_enemy.\n", game);
 	enemy->coordinates = build_coordinates(game, x, y);
 	enemy->previous_coordinates = ft_calloc(1, sizeof(t_coord));
 	if (!enemy->previous_coordinates)
-		ft_error_handler("Error\nMemory alloc failed on: enemy->prev coord.\n");
+		error_handler("Error\nMemory alloc failed on: enemy->prev coord.\n",
+			game);
 	if (game->enemies == NULL)
 		game->enemies = ft_lstnew(enemy);
 	else

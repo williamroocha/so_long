@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:44:39 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/25 17:30:19 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:43:51 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	build_collectible(t_game *game, int x, int y)
 
 	collectible = ft_calloc(1, sizeof(t_collectible));
 	if (!collectible)
-		ft_error_handler("Error\nMemory alloc failed on: build_collectible\n");
+		error_handler("Error\nMemory alloc failed on: build_collectible\n",
+			game);
 	collectible->coordinates = build_coordinates(game, x, y);
 	collectible->collected = 0;
 	collectible->animation = 0;

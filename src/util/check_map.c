@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:41:52 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/21 13:03:42 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:48:30 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 void	check_map(t_game *game)
 {
 	if (game->map->height == game->map->width)
-		ft_error_handler("Error\nInvalid map, wrong size.\n");
+		error_handler("Error\nInvalid map, wrong size.\n", game);
 	if (!check_map_characters(game))
-		ft_error_handler("Error\nInvalid map, wrong characters.\n");
+		error_handler("Error\nInvalid map, wrong characters.\n", game);
 	if (!check_map_walls(game))
-		ft_error_handler("Error\nInvalid map, missing walls.\n");
+		error_handler("Error\nInvalid map, missing walls.\n", game);
 	if (game->nbr_exit != 1)
-		ft_error_handler("Error\nInvalid map, missing exit.\n");
+		error_handler("Error\nInvalid map, missing exit.\n", game);
 	if (game->nbr_player == 0)
-		ft_error_handler("Error\nInvalid map, missing player.\n");
+		error_handler("Error\nInvalid map, missing player.\n", game);
 	if (game->nbr_player > 1)
-		ft_error_handler("Error\nInvalid map, too many players.\n");
+		error_handler("Error\nInvalid map, too many players.\n", game);
 	if (game->nbr_collectibles == 0)
-		ft_error_handler("Error\nInvalid map, missing collectibles.\n");
+		error_handler("Error\nInvalid map, missing collectibles.\n", game);
 }
 
 // Maybe use flood fill to check if the map is empty?

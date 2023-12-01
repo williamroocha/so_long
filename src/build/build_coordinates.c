@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:02:49 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/25 17:28:09 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:39:32 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ t_coord	*build_coordinates(t_game *game, int x, int y)
 
 	coord = ft_calloc(1, sizeof(t_coord));
 	if (!coord)
-	{
-		ft_error_handler("Error\nMemory alloc failed (in build_coordinates)\n");
-		end_game(game);
-	}
+		error_handler("Error\nMemory alloc failed (in build_coordinates)\n",
+			game);
 	coord->x = x * BLOCK_PIXEL;
 	coord->y = y * BLOCK_PIXEL;
 	return (coord);

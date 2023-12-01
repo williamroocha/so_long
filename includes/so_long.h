@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:19:36 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/27 09:19:00 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:56:03 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 
 // main functions
 int			main(int ac, char **av);
+void	error_handler(char *msg, t_game *game);
 
 void		build(char *map_path, t_game *game);
 void		build_game(t_game *game);
@@ -46,7 +47,7 @@ void		build_sprites(t_game *game);
 void		register_hook(t_game *game);
 
 // Checker functions
-void		check_map_extension(char *map_path);
+void		check_map_extension(char *map_path, t_game *game);
 int			check_map_characters(t_game *game);
 int			check_map_walls(t_game *game);
 void		check_map(t_game *game);

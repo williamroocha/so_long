@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:06:26 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/01 15:55:32 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:40:09 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ void	check_map_extension(char *map_path, t_game *game)
 		error_handler("Error\nMap file has no extension.\n", game);
 	if (ft_strcmp(extension, BER) != 0)
 		error_handler("Error\nMap file has wrong extension.\n", game);
+	free(path);
 }

@@ -38,7 +38,7 @@ obj/%.o: src/check_functions/%.c | obj
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-obj/%.o: src/action/%.c | obj
+obj/%.o: src/action/%.c | objfiles
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
@@ -55,21 +55,22 @@ obj/%.o: includes/get_next_line/%.c | obj
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-	@make -C $(LIBFT_DIR)
+	@make -s -C $(LIBFT_DIR)
 
 $(MLX):
-	@make -C $(MLX_DIR)
+	@make -s -C $(MLX_DIR) > /dev/null 2>&1
+	@echo "mlx compiled"
 
 clean:
-	@make clean -C $(LIBFT_DIR)
-	@make clean -C $(MLX_DIR)
+	@make -s clean -C $(LIBFT_DIR)
+	@make -s clean -C $(MLX_DIR) > /dev/null 2>&1
+	@echo "mlx removed"
 	@rm -rf obj
-	@echo "so_long cleaned"
 
 fclean: clean
-	@make fclean -C $(LIBFT_DIR)
+	@make -s fclean -C $(LIBFT_DIR)
 	@rm -f $(NAME)
-	@echo "so_long fcleaned"
+	@echo "so_long removed"
 
 re: fclean all
 

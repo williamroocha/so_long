@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 08:50:33 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/01 18:43:41 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/12/01 17:44:25 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/12/01 17:45:39 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
-int	main(int ac, char **av)
+int	loop(t_game *game)
 {
-	t_game	game;
-
-	if (ac == 1)
-		ft_putstr_fd("Error\nNo map specified.\n", 1);
-	else if (ac != 2)
-		ft_putstr_fd("Error\nToo many arguments.\n", 1);
-	else
-	{
-		build(av[1], &game);
-		register_hook(&game);
-	}
-	return (0);
+	draw_background(game);
+	draw_collectible(game);
+	draw_exit(game);
+	draw_enemy(game);
+	move_enemy(game);
+	mlx_put_image_to_window(game->mlx, game->window, game->image_buffer.img, 0,
+		0);
+	draw_player(game);
+	return (EXIT_SUCCESS);
 }
-
-// Make a function for the enemy not be  in exit position

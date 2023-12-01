@@ -1,36 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.c                                             :+:      :+:    :+:   */
+/*   keypress.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 13:48:29 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/01 11:20:18 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/12/01 17:42:26 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/12/01 17:43:00 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
-
-int	closing_game(t_game *game)
-{
-	ft_putstr_fd("Bye!\n", 1);
-	end_game(game);
-	return (0);
-}
-
-int	loop(t_game *game)
-{
-	draw_background(game);
-	draw_collectible(game);
-	draw_exit(game);
-	draw_enemy(game);
-	move_enemy(game);
-	mlx_put_image_to_window(game->mlx, game->window, game->image_buffer.img, 0,
-		0);
-	draw_player(game);
-	return (EXIT_SUCCESS);
-}
 
 int	keypress(int keycode, t_game *game)
 {
@@ -57,12 +37,4 @@ int	keypress(int keycode, t_game *game)
 		finish_game(game);
 	}
 	return (0);
-}
-
-void	register_hook(t_game *game)
-{
-	mlx_hook(game->window, KeyPress, KeyPressMask, keypress, game);
-	mlx_hook(game->window, 17, 0, closing_game, game);
-	mlx_loop_hook(game->mlx, loop, game);
-	mlx_loop(game->mlx);
 }

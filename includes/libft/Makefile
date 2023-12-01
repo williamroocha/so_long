@@ -45,7 +45,6 @@ obj:
 
 clean:
 	@$(RM) $(OBJECTS) $(OBJ_BONUS)
-	@echo "libft object files removed"
 
 fclean: clean
 	@$(RM) $(NAME)

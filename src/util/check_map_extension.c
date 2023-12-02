@@ -6,12 +6,12 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:06:26 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/01 16:40:09 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 19:10:13 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
-#include <stdlib.h>
+
 
 char	*make_path(char *map_path)
 {
@@ -37,7 +37,7 @@ char	*make_path(char *map_path)
 	return (path);
 }
 
-void	check_map_extension(char *map_path, t_game *game)
+void	check_map_extension(char *map_path)
 {
 	char	*extension;
 	char	*path;
@@ -45,8 +45,8 @@ void	check_map_extension(char *map_path, t_game *game)
 	path = make_path(map_path);
 	extension = ft_strchr(path, '.');
 	if (extension == NULL)
-		error_handler("Error\nMap file has no extension.\n", game);
+		error_handler("Error\nMap file has no extension.\n", NULL);
 	if (ft_strcmp(extension, BER) != 0)
-		error_handler("Error\nMap file has wrong extension.\n", game);
+		error_handler("Error\nMap file has wrong extension.\n", NULL);
 	free(path);
 }

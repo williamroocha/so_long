@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 13:04:54 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/02 13:05:12 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:20:27 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	finish_game(t_game *game)
 	x = game->player->coordinates->x / BLOCK_PIXEL;
 	if (game->nbr_collectibles == 0 && game->map->matrix[y][x] == 'E')
 	{
-		ft_putstr_fd("You won!\n", 1);
+		ft_putstr_fd("YOU WON!!!!\n", 1);
 		end_game(game);
 	}
 }

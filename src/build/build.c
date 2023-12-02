@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:57:19 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/21 13:34:37 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 18:11:50 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	build(char *map_path, t_game *game)
 {
-	build_map(map_path, game);
 	build_game(game);
+	build_map(map_path, game);
 	build_characters(game);
 	check_map(game);
 	build_mlx_itens(game);

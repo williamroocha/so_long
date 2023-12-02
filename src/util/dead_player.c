@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 13:10:43 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/02 13:11:00 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:21:27 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	dead_player(t_game *game)
 		if (enemy->coordinates->x == game->player->coordinates->x
 			&& enemy->coordinates->y == game->player->coordinates->y)
 		{
-			ft_putstr_fd("You died\n", 1);
+			ft_putstr_fd("YOU DIED\n", 1);
 			end_game(game);
 		}
 		lst = lst->next;

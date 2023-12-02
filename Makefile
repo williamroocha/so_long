@@ -50,6 +50,7 @@ $(addprefix $(SRC_DIR)/util/, \
     end_game.c \
     error_handler.c \
 	finish_game.c \
+	flood_fill.c \
 ) \
 $(addprefix $(INC_DIR)/get_next_line/, \
 	get_next_line.c \

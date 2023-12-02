@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:44:06 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/26 19:35:48 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:16:38 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define XPM ".xpm"
 # define BER ".ber"
 
-# define WINDOW_TITLE "JOGO SEM NOME"
+# define WINDOW_TITLE "WILLIAM'S SO_LONG"
 
 # define LETTER_KEY_LEFT 97
 # define LETTER_KEY_RIGHT 100

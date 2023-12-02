@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:42:21 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/02 12:42:40 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:23:15 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	convert_lst_to_char(t_game *game)
 	game->map->height = ft_lstsize(game->map->lst_map);
 	game->map->matrix = ft_calloc(game->map->height + 1, sizeof(char *));
 	if (!game->map->matrix)
-		error_handler("Error\nMemory allocation failed.\n", game);
+		error_handler("Error\nMemory alloc: convert_lst_to_char.\n", game);
 	game->flood_fill->map = ft_calloc(sizeof(char *), game->map->height);
 	if (!game->flood_fill->map)
-		error_handler("Error\nMemory allocation failed.\n", game);
+		error_handler("Error\nMemory alloc: convert_lst_to_char.\n", game);
 	while (lst)
 	{
 		game->map->matrix[i] = ft_strdup(lst->content);

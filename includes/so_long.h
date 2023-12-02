@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:19:36 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/02 17:09:24 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 19:10:31 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ int			main(int ac, char **av);
 // Utils functions:
 int			check_map_characters(t_game *game);
 char		*make_path(char *map_path);
-void		check_map_extension(char *map_path, t_game *game);
+void		check_map_extension(char *map_path);
 int			check_map_walls(t_game *game);
 void		check_map(t_game *game);
+void		fill(int y, int x, t_game *game, char to_fill);
+int			flood_fill(t_game *game);
 int			is_right_wall(t_game *game, t_coord *coord);
 int			is_left_wall(t_game *game, t_coord *coord);
 int			is_top_wall(t_game *game, t_coord *coord);

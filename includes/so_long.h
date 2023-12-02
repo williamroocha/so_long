@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:19:36 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/01 15:56:03 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:52:50 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 // main functions
 int			main(int ac, char **av);
-void	error_handler(char *msg, t_game *game);
+void		error_handler(char *msg, t_game *game);
 
 void		build(char *map_path, t_game *game);
 void		build_game(t_game *game);
@@ -64,6 +64,7 @@ int			is_right_wall(t_game *game, t_coord *coord);
 int			is_left_wall(t_game *game, t_coord *coord);
 int			is_top_wall(t_game *game, t_coord *coord);
 int			is_down_wall(t_game *game, t_coord *coord);
+int			is_exit(t_game *game, t_coord *coord);
 
 void		move_right(t_game *game, t_coord *coord, t_coord *last_coord,
 				int is_player);

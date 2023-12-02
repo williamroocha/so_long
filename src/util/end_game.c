@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:07:47 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/01 17:21:14 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 14:46:07 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,9 @@ void	clean_enemy(void *item)
 
 void	destroy_game(t_game *game)
 {
-	if (game)
-	{
-		ft_lstclear(&game->map->lst_map, clean_lst);
-		ft_lstclear(&game->enemies, clean_enemy);
-		ft_lstclear(&game->collectibles, clean_collectible);
-	}
+	ft_lstclear(&game->map->lst_map, clean_lst);
+	ft_lstclear(&game->enemies, clean_enemy);
+	ft_lstclear(&game->collectibles, clean_collectible);
 }
 
 void	end_game(t_game *game)

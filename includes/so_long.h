@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:19:36 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/02 13:32:40 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:09:24 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void		clean_collectible(void *item);
 void		clean_enemy(void *item);
 void		destroy_game(t_game *game);
 void		end_game(t_game *game);
-void	finish_game(t_game *game); // TODO: find where this function is called
+void		finish_game(t_game *game);
 void		error_handler(char *msg, t_game *game);
 void		convert_lst_to_char(t_game *game);
 
@@ -71,9 +71,6 @@ void		build_enemy(t_game *game, int x, int y);
 void		build_collectible(t_game *game, int x, int y);
 void		build_exit(t_game *game, int x, int y);
 void		build_mlx_itens(t_game *game);
-// static char	*path_sprite(char *sprite_name, int nb);
-// static void	load_sprite(t_game *game, char *sprite_type, char *path, int pos);
-// static void	create_sprites(t_game *game, char *sprite_type, int nbr_sprites);
 void		build_sprites(t_game *game);
 void		build(char *map_path, t_game *game);
 

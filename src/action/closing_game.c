@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:40:10 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/01 17:41:06 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 13:25:19 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ int	closing_game(t_game *game)
 {
 	ft_putstr_fd("Bye!\n", 1);
 	end_game(game);
-	return (0);
+	return (EXIT_SUCCESS);
 }

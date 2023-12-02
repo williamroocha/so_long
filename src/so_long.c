@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 08:50:33 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/01 18:43:41 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 12:11:56 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,3 @@ int	main(int ac, char **av)
 	}
 	return (0);
 }
-
-// Make a function for the enemy not be  in exit position

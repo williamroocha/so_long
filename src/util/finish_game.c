@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   build_map.c                                        :+:      :+:    :+:   */
+/*   finish_game.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:41:24 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/02 12:42:47 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/12/02 13:04:54 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/12/02 13:05:12 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void	build_map(char *map_path, t_game *game)
+void	finish_game(t_game *game)
 {
-	int	fd;
+	int	y;
+	int	x;
 
-	check_map_extension(map_path, game);
-	fd = open(map_path, O_RDONLY);
-	if (fd == -1)
-		error_handler("Error\nMap file could not be opened.\n", game);
-	read_map(fd, game);
-	close(fd);
-	game->flood_fill = ft_calloc(1, sizeof(t_floodfill));
-	if (!game->flood_fill)
-		error_handler("Error\nMemory allocation failed.\n", game);
-	convert_lst_to_char(game);
+	y = game->player->coordinates->y / BLOCK_PIXEL;
+	x = game->player->coordinates->x / BLOCK_PIXEL;
+	if (game->nbr_collectibles == 0 && game->map->matrix[y][x] == 'E')
+	{
+		ft_putstr_fd("You won!\n", 1);
+		end_game(game);
+	}
 }

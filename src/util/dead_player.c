@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   build_map.c                                        :+:      :+:    :+:   */
+/*   dead_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:41:24 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/02 12:42:47 by wiferrei         ###   ########.fr       */
+/*   Created: 2023/12/02 13:10:43 by wiferrei          #+#    #+#             */
+/*   Updated: 2023/12/02 13:11:00 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void	build_map(char *map_path, t_game *game)
+void	dead_player(t_game *game)
 {
-	int	fd;
+	t_list	*lst;
+	t_enemy	*enemy;
 
-	check_map_extension(map_path, game);
-	fd = open(map_path, O_RDONLY);
-	if (fd == -1)
-		error_handler("Error\nMap file could not be opened.\n", game);
-	read_map(fd, game);
-	close(fd);
-	game->flood_fill = ft_calloc(1, sizeof(t_floodfill));
-	if (!game->flood_fill)
-		error_handler("Error\nMemory allocation failed.\n", game);
-	convert_lst_to_char(game);
+	lst = game->enemies;
+	while (lst)
+	{
+		enemy = (t_enemy *)lst->content;
+		if (enemy->coordinates->x == game->player->coordinates->x
+			&& enemy->coordinates->y == game->player->coordinates->y)
+		{
+			ft_putstr_fd("You died\n", 1);
+			end_game(game);
+		}
+		lst = lst->next;
+	}
 }

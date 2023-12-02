@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:42:26 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/01 17:43:00 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 13:24:57 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ int	keypress(int keycode, t_game *game)
 {
 	if (keycode == KEY_ESC || keycode == LETTER_KEY_EXIT)
 	{
-		ft_putstr_fd("Bye!\n", 1);
-		end_game(game);
+		closing_game(game);
 	}
 	else
 	{

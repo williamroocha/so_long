@@ -6,30 +6,11 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 07:39:01 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/02 11:36:35 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/02 13:18:13 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
-
-void	dead_player(t_game *game)
-{
-	t_list	*lst;
-	t_enemy	*enemy;
-
-	lst = game->enemies;
-	while (lst)
-	{
-		enemy = (t_enemy *)lst->content;
-		if (enemy->coordinates->x == game->player->coordinates->x
-			&& enemy->coordinates->y == game->player->coordinates->y)
-		{
-			ft_putstr_fd("You died\n", 1);
-			end_game(game);
-		}
-		lst = lst->next;
-	}
-}
 
 void	draw_count_steps(t_game *game)
 {
@@ -44,8 +25,6 @@ void	draw_count_steps(t_game *game)
 		steps_window);
 	free(steps_window);
 }
-
-//  Mudar nome dessas variavesis;
 
 t_buffer	*get_player_sprite(t_game *game)
 {

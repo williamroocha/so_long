@@ -1,24 +1,68 @@
 NAME = so_long
-
-SRC := $(wildcard src/*.c) \
-       $(wildcard src/build/*.c) \
-       $(wildcard src/check_functions/*.c) \
-       $(wildcard src/action/*.c) \
-       $(wildcard src/draw/*.c) \
-       $(wildcard src/util/*.c) \
-       $(wildcard includes/get_next_line/*.c)
-
-OBJ := $(patsubst src/%.c,obj/%.o,$(filter-out includes/get_next_line/%.c,$(SRC))) \
-       $(patsubst includes/get_next_line/%.c,obj/%.o,$(filter includes/get_next_line/%.c,$(SRC)))
-
 CC = gcc
-
 CFLAGS = -Wall -Wextra -Werror -g -Iincludes/
-MLXFLAGS = -lXext -lX11 -lm -lz
+
+INC_DIR = includes
+SRC_DIR = src
+OBJ_DIR = obj
+
+SRC := $(addprefix $(SRC_DIR)/, \
+	so_long.c \
+) \
+$(addprefix $(SRC_DIR)/action/, \
+	closing_game.c \
+	keypress.c \
+	loop.c \
+	register_hook.c \
+) \
+$(addprefix $(SRC_DIR)/build/, \
+	build.c \
+	build_characters.c \
+	build_collectible.c	\
+    build_coordinates.c \
+    build_enemy.c \
+    build_exit.c \
+    build_game.c \
+    build_map.c \
+    build_mlx_itens.c \
+    build_player.c \
+    build_sprites.c \
+    read_map.c \
+) \
+$(addprefix $(SRC_DIR)/draw/, \
+	draw_background.c \
+    draw_collectibles.c \
+    draw_enemies.c \
+    draw_exit.c \
+    draw_player.c \
+   	draw_ultils.c \
+    player_movements.c \
+) \
+$(addprefix $(SRC_DIR)/util/, \
+    check_map.c \
+    check_map_characters.c \
+    check_map_extension.c \
+    check_map_walls.c \
+    colision_walls.c \
+    convert_lst_to_char.c \
+    dead_player.c \
+    directions.c \
+    end_game.c \
+    error_handler.c \
+	finish_game.c \
+) \
+$(addprefix $(INC_DIR)/get_next_line/, \
+	get_next_line.c \
+	get_next_line_utils.c \
+)
+
+OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
+
 LIBFT_DIR = ./includes/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 MLX_DIR = ./includes/mlx_linux
 MLX = $(MLX_DIR)/libmlx.a
+MLXFLAGS = -lXext -lX11 -lm -lz
 
 all: $(NAME)
 
@@ -26,55 +70,28 @@ $(NAME): $(OBJ) $(LIBFT) $(MLX)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L$(MLX_DIR) -lmlx -L$(LIBFT_DIR) -lft $(MLXFLAGS)
 	@echo "so_long compiled"
 
-obj/%.o: src/%.c | obj
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-obj/%.o: src/build/%.c | obj
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-obj/%.o: src/check_functions/%.c | obj
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-obj/%.o: src/action/%.c | objfiles
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-obj/%.o: src/draw/%.c | obj
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-obj/%.o: src/util/%.c | obj
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-obj/%.o: includes/get_next_line/%.c | obj
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-	@make -s -C $(LIBFT_DIR)
+	@$(MAKE) -s -C $(LIBFT_DIR)
 
 $(MLX):
-	@make -s -C $(MLX_DIR) > /dev/null 2>&1
+	@$(MAKE) -s -C $(MLX_DIR) > /dev/null 2>&1
 	@echo "mlx compiled"
 
 clean:
-	@make -s clean -C $(LIBFT_DIR)
-	@make -s clean -C $(MLX_DIR) > /dev/null 2>&1
-	@echo "mlx removed"
-	@rm -rf obj
+	@rm -rf $(OBJ_DIR)
+	@$(MAKE) -s clean -C $(LIBFT_DIR)
+	@$(MAKE) -s clean -C $(MLX_DIR) > /dev/null 2>&1
+	@echo "so_long removed"
 
 fclean: clean
-	@make -s fclean -C $(LIBFT_DIR)
 	@rm -f $(NAME)
+	@$(MAKE) -s fclean -C $(LIBFT_DIR)
 	@echo "so_long removed"
 
 re: fclean all
 
-obj:
-	@mkdir -p $@
-
-.PHONY: all clean fclean re
+.PHONY: clean fclean all re

@@ -6,12 +6,11 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:06:26 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/02 19:10:13 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/03 12:06:04 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
-
 
 char	*make_path(char *map_path)
 {

@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:19:36 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/02 19:10:31 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/04 09:17:58 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,6 @@ int			keypress(int keycode, t_game *game);
 int			loop(t_game *game);
 void		register_hook(t_game *game);
 
+// test functions:
+void		free_game_memory(t_game *game);
 #endif

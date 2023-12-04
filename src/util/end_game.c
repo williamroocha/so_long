@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:07:47 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/02 19:05:03 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/04 09:22:37 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,22 @@ void	clean_enemy(void *item)
 
 void	destroy_game(t_game *game)
 {
+	int	i;
+
+	i = 0;
+	while (i < game->map->height)
+	{
+		free(game->map->matrix[i]);
+		i++;
+	}
+	free(game->map->matrix);
+	i = 0;
+	while (i < game->map->height)
+	{
+		free(game->flood_fill->map[i]);
+		i++;
+	}
+	free(game->flood_fill->map);
 	if (game && game->map)
 	{
 		ft_lstclear(&game->map->lst_map, clean_lst);

@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:07:47 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/04 09:22:37 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/04 09:53:11 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,14 @@ void	destroy_game(t_game *game)
 		i++;
 	}
 	free(game->flood_fill->map);
-	if (game && game->map)
+	free(game->flood_fill);
+	if (game)
 	{
 		ft_lstclear(&game->map->lst_map, clean_lst);
 		ft_lstclear(&game->enemies, clean_enemy);
 		ft_lstclear(&game->collectibles, clean_collectible);
+		if (game->map)
+			free(game->map);
 	}
 }
 

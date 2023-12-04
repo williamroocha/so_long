@@ -3,6 +3,7 @@
         "so_long.h": "c",
         "unistd.h": "c",
         "build_game.C": "cpp",
-        "x.h": "c"
+        "x.h": "c",
+        "stdio.h": "c"
     }
 }

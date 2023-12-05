@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:07:47 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/04 09:53:11 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/05 10:56:15 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,25 +46,57 @@ void	clean_enemy(void *item)
 	}
 }
 
+void	clean_exit(t_game *game)
+{
+	if (game->exit->coordinates)
+		free(game->exit->coordinates);
+	if (game->exit)
+		free(game->exit);
+}
+
+void	clean_player(void *item)
+{
+	t_player	*player;
+
+	if (item)
+	{
+		player = (t_player *)item;
+		if (player->coordinates)
+			free(player->coordinates);
+		if (player->previous_coordinates)
+			free(player->previous_coordinates);
+		free(player);
+	}
+}
+
 void	destroy_game(t_game *game)
 {
 	int	i;
 
+	if (game->player)
+		clean_player(game->player);
+	if (game->exit)
+		clean_exit(game);
 	i = 0;
 	while (i < game->map->height)
 	{
-		free(game->map->matrix[i]);
+		if (game->map->matrix[i])
+			free(game->map->matrix[i]);
 		i++;
 	}
-	free(game->map->matrix);
+	if (game->map->matrix)
+		free(game->map->matrix);
 	i = 0;
 	while (i < game->map->height)
 	{
-		free(game->flood_fill->map[i]);
+		if ((game->flood_fill->map[i]))
+			free(game->flood_fill->map[i]);
 		i++;
 	}
-	free(game->flood_fill->map);
-	free(game->flood_fill);
+	if (game->flood_fill->map)
+		free(game->flood_fill->map);
+	if (game->flood_fill)
+		free(game->flood_fill);
 	if (game)
 	{
 		ft_lstclear(&game->map->lst_map, clean_lst);

@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:19:36 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/07 19:10:02 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:17:48 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,10 @@ void		move_down(t_game *game, t_coord *coord, t_coord *last_coord,
 				int is_player);
 void		move_enemy(t_game *game);
 void		dead_player(t_game *game);
+void		error_handler(char *msg, t_game *game);
+void		convert_lst_to_char(t_game *game);
+
+// Clean functions:
 void		clean_lst(void *item);
 void		clean_collectible(void *item);
 void		clean_enemy(void *item);
@@ -71,8 +75,6 @@ void		clean_mlx(t_game *game);
 void		destroy_game(t_game *game);
 void		end_game(t_game *game);
 void		finish_game(t_game *game);
-void		error_handler(char *msg, t_game *game);
-void		convert_lst_to_char(t_game *game);
 
 // Build functions:
 void		build_map(char *map_path, t_game *game);
@@ -119,6 +121,4 @@ int			keypress(int keycode, t_game *game);
 int			loop(t_game *game);
 void		register_hook(t_game *game);
 
-// test functions:
-void		free_game_memory(t_game *game);
 #endif

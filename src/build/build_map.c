@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:41:24 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/06 07:26:59 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:26:44 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	build_map(char *map_path, t_game *game)
 	close(fd);
 	game->flood_fill = ft_calloc(1, sizeof(t_floodfill));
 	if (!game->flood_fill)
-		error_handler("Error\nMemory allocation failed.\n", game);
+		error_handler("Error\nMemory alloc failed: build_map.\n", game);
 	convert_lst_to_char(game);
 }

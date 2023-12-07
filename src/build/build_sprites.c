@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:08:37 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/01 15:43:03 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:35:31 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	create_sprites(t_game *game, char *sprite_type, int nbr_sprites)
 		path = path_sprite(sprite_type, i);
 		fd_xpm = open(path, O_RDONLY);
 		if (fd_xpm == -1)
-			error_handler("Error\nFile not found on: create_sprites\n", game);
+			error_handler("Error\nFile not found: create_sprites\n", game);
 		close(fd_xpm);
 		load_sprite(game, sprite_type, path, i);
 		free(path);

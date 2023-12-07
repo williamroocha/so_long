@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 08:43:56 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/07 09:04:45 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:20:22 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	clean_buffer(t_game *game, t_buffer *buffer)
 	buffer->width = 0;
 	buffer->height = 0;
 }
-
 
 void	clean_sprites(t_game *game)
 {

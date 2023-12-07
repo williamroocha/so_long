@@ -6,13 +6,11 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 10:42:48 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/06 09:28:40 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/07 07:45:07 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
-
-// This function is used to initialize the game structure.
 
 void	build_game(t_game *game)
 {

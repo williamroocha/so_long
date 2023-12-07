@@ -47,6 +47,10 @@ $(addprefix $(SRC_DIR)/util/, \
     convert_lst_to_char.c \
     dead_player.c \
     directions.c \
+	clean_characters.c \
+	clean_map.c \
+	clean_sprites_utils.c \
+	clean_sprites.c \
     end_game.c \
     error_handler.c \
 	finish_game.c \

@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:19:36 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/04 09:17:58 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/07 09:02:51 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,18 @@ void		dead_player(t_game *game);
 void		clean_lst(void *item);
 void		clean_collectible(void *item);
 void		clean_enemy(void *item);
+void		clean_player(void *item);
+void		clean_exit(t_game *game);
+void		clean_map(t_map *map);
+void		clean_flood_fill(t_floodfill *flood_fill);
+void		clean_sprites_player(t_game *game);
+void		clean_sprites_collectible(t_game *game);
+void		clean_sprites_enemies(t_game *game);
+void		clean_sprites_tiles(t_game *game);
+void		clean_sprites(t_game *game);
+void		clean_sprites_exit(t_game *game);
+void		clean_buffer(t_game *game, t_buffer *buffer);
+void		clean_mlx(t_game *game);
 void		destroy_game(t_game *game);
 void		end_game(t_game *game);
 void		finish_game(t_game *game);

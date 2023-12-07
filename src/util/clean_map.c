@@ -6,52 +6,54 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 08:35:34 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/07 08:40:13 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/07 09:44:23 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void	clean_flood_fill(t_floodfill *flood_fill)
+void	clean_flood_fill(t_game *game)
 {
 	int	i;
 
-	if (flood_fill)
+	if (game->flood_fill)
 	{
 		i = 0;
-		if (flood_fill->map)
+		if (game->flood_fill->map)
 		{
-			while (flood_fill->map[i])
+			while (game->flood_fill->map[i])
 			{
-				free(flood_fill->map[i]);
+				free(game->flood_fill->map[i]);
 				i++;
 			}
-			free(flood_fill->map);
+			free(game->flood_fill->map);
 		}
-		free(flood_fill);
+		free(game->flood_fill);
+		game->flood_fill = NULL;
 	}
 }
 
-void	clean_map(t_map *map)
+void	clean_map(t_game *game)
 {
 	int	i;
 
-	if (map)
+	if (game->map)
 	{
 		i = 0;
-		if (map->height)
+		if (game->map->height)
 		{
-			while (i < map->height)
+			while (i < game->map->height)
 			{
-				if (map->matrix[i])
-					free(map->matrix[i]);
+				if (game->map->matrix[i])
+					free(game->map->matrix[i]);
 				i++;
 			}
 		}
-		if (map->lst_map)
-			ft_lstclear(&map->lst_map, clean_lst);
-		if (map->matrix)
-			free(map->matrix);
-		free(map);
+		if (game->map->lst_map)
+			ft_lstclear(&game->map->lst_map, clean_lst);
+		if (game->map->matrix)
+			free(game->map->matrix);
+		free(game->map);
+		game->map = NULL;
 	}
 }

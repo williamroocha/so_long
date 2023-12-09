@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:41:24 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/12/07 19:26:44 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/08 13:23:18 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	build_map(char *map_path, t_game *game)
 {
 	int	fd;
 
-	check_map_extension(map_path);
 	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
 		error_handler("Error\nMap file could not be opened.\n", NULL);
+	check_map_extension(map_path);
 	read_map(fd, game);
 	close(fd);
 	game->flood_fill = ft_calloc(1, sizeof(t_floodfill));

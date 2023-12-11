@@ -1,6 +1,12 @@
 # So_long Project
 
-![Project Status](https://img.shields.io/badge/status-complete-brightgreen.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/mit/)
+[![Build Status](https://img.shields.io/badge/status-complete-brightgreen.svg)](https://travis-ci.com/williamroocha/ft_printf)
+[![Build Status](https://img.shields.io/badge/42-2023-blue.svg)](https://42lisboa.com/)
+
+<div style="display: flex; justify-content: center;">
+  <img src="./sprites/demo.gif" alt="so_long GIF">
+</div>
 
 This project is part of the common core curriculum at [42 Lisboa](https://www.42lisboa.com/). The goal is to create a small 2D game using the [minilibx](https://github.com/42Paris/minilibx-linux) library.
 

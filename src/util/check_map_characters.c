@@ -6,7 +6,7 @@
 /*   By: wiferrei <wiferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:02:20 by wiferrei          #+#    #+#             */
-/*   Updated: 2023/11/15 18:05:19 by wiferrei         ###   ########.fr       */
+/*   Updated: 2023/12/16 14:13:32 by wiferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,4 @@ int	check_map_characters(t_game *game)
 	}
 	return (1);
 }
+
